@@ -1,0 +1,46 @@
+
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+  
+          <div class="container mt--8">
+            <div class="text-light col-lg-6">
+              <a  routerLinkActive="active" [routerLink]="['/login']" data-bs-toggle="tooltip" title="Voltar a página de login">
+                <mat-icon aria-hidden="false" aria-label="Login" fontIcon="arrow_back_ios"></mat-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center mb-4" style="color: white;">
+              <h2>Esqueci Minha Senha</h2>
+            </div>
+            <form [formGroup]="formularioResetSenha">
+
+                <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <mat-icon aria-hidden="false" aria-label="Cpf/Cnpj" fontIcon="settings"></mat-icon>
+                        </span>
+                      </div>
+                      <input class="form-control" formControlName="cpfCnpj" placeholder="Cpf ou Cnpj" type="text" mask="000.000.000-00||00.000.000/0000-00">
+                    </div>
+                  </div>
+             
+              <br>
+              <div class="row">
+                  <div class="text-center col-lg-12">
+                    <button class="form-control btn btn-primary" [disabled]="!formularioResetSenha.valid" (click)="ngResetSenha()" data-bs-toggle="tooltip" title="Realizar cadastro">Recuperar Senha</button>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

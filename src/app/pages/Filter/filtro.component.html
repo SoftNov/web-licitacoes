@@ -1,0 +1,40 @@
+
+  <form [formGroup]="filtrosForm">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Data fim</mat-label>
+          <input matInput formControlName="dtFim" [matDatepicker]="picker1" (dateChange)="ngAplicar()">
+          <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Modalidades</mat-label>
+          <mat-select formControlName="modalidades" ng-required (selectionChange)="ngAplicar()" multiple>
+            <mat-option *ngFor="let modalidade of dadosFiltros.modalidades"
+              [value]="modalidade.idModalidade">{{modalidade.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Estados</mat-label>
+          <mat-select formControlName="estados" ng-required (selectionChange)="NgBuscarMunicipios()" multiple>
+            <mat-option *ngFor="let estado of dadosFiltros.estados" [value]="estado.id">{{estado.uf}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field>
+          <mat-label>Municipios</mat-label>
+          <mat-select formControlName="municipios" ng-required [disabled]="!filtrosForm.valid" (selectionChange)="ngAplicar()" multiple>
+            <mat-option *ngFor="let municipio of municipios" [value]="municipio.id">{{municipio.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>

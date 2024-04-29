@@ -1,0 +1,273 @@
+<mat-card>
+  <mat-card-content>
+    <div cdkDropListGroup class="row">
+      <div class="example-container col-md-3">
+        <hr style="background-color: blue;">
+        <div class="col-md-12">
+          <h3>Novos Contratos</h3>
+        </div>
+        <hr style="background-color: blue">
+
+        <div class="example-list" cdkDropList [cdkDropListData]="NovosContratos" (cdkDropListDropped)="drop($event, 1)"
+          (cdkDropListEntered)="onDropListEntered($event)" (cdkDropListExited)="onDropListExited($event)">
+          <div class="col-md-12">
+            <mat-card class="example-card" *ngFor="let item of NovosContratos" cdkDrag
+              (cdkDragEntered)="onDragEntered($event)" (CdkDragMoved)="onMoved($event)"
+              (cdkDragExited)="onDragExited($event)">
+              <mat-card-content>
+                <div class="col-md-12" *cdkDragPlaceholder></div>
+                {{item.titulo}} - UASG: {{item.codigo}}
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="col-md-2">
+                  <a class="btn btn-delete" (click)="ngDeleteContrato(item.idContrato)"
+                    matTooltip="Remover licitação dos meus negócios.">
+                    <mat-icon>delete</mat-icon> </a>
+                </div>
+                <div class="col-md-2">
+                  <a class="btn btn btn-visibility" (click)=" openDialog(item)"
+                    matTooltip="Click aqui para vizualizar os itens selecionados.">
+                    <mat-icon>visibility</mat-icon>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-1" style=" text-align: left;">
+                  <a class="btn btn-arrow_outward" (click)="ngRedirecionamento(item.url)"
+                    matTooltip="Acessar página da licitação.">
+                    <mat-icon>arrow_outward</mat-icon>
+                  </a>
+                </div>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <br>
+      </div>
+
+
+      <div class="example-container col-md-3">
+        <hr style="background-color: blue;">
+        <div class="col-md-12">
+          <h3>Obtendo Forncedor</h3>
+        </div>
+        <hr style="background-color: blue">
+        <div class="  example-list" cdkDropList [cdkDropListData]="ContratosEmBuscaFornecedor"
+          (cdkDropListDropped)="drop($event, 2)" (cdkDropListExited)="onDropListExited($event)">
+          <div class="col-md-12">
+            <mat-card class="example-card" *ngFor="let item of ContratosEmBuscaFornecedor" cdkDrag
+              (cdkDragEntered)="onDragEntered($event)">
+              <mat-card-content>
+                <div class="col-md-12" *cdkDragPlaceholder></div>
+                {{item.titulo}} - UASG: {{item.codigo}}
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="col-md-2">
+                  <a class="btn btn-delete" (click)="ngDeleteContrato(item.idContrato)"
+                    matTooltip="Remover licitação dos meus negócios.">
+                    <mat-icon>delete</mat-icon> </a>
+                </div>
+                <div class="col-md-2">
+                  <a class="btn btn-visibility" (click)=" openDialog(item)"
+                    matTooltip="Click aqui para vizualizar os itens selecionados.">
+                    <mat-icon>visibility</mat-icon>
+                  </a>
+                </div>
+                <div class="col-md-2">
+                  <a [routerLink]="['/Fornecedor/', item.idContrato]"
+                  matTooltip="Adicionar fornecedor ao item da licitação" style="width: 100%;">
+                  <mat-icon>person_add</mat-icon> 
+                  </a>
+                </div>
+
+           
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-2" style=" text-align: left;">
+                  <a class="btn btn-arrow_outward" (click)="ngRedirecionamento(item.url)"
+                    matTooltip="Acessar página da licitação.">
+                    <mat-icon>arrow_outward</mat-icon>
+                  </a>
+                </div>
+
+
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="example-container col-md-3">
+        <hr style="background-color: blue;">
+        <div class="col-md-12">
+          <h3>Precificação</h3>
+        </div>
+        <hr style="background-color: blue;">
+        <div class=" example-list" cdkDropList [cdkDropListData]="ContratosEmPrecificacao"
+          (cdkDropListDropped)="drop($event, 3)">
+          <div class="col-md-12">
+            <mat-card class="example-card" *ngFor="let item of ContratosEmPrecificacao" cdkDrag
+              (cdkDragEntered)="onDragEntered($event)">
+              <mat-card-content>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                {{item.titulo}} - UASG: {{item.codigo}}
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="col-md-2">
+                  <a class="btn btn-delete" (click)="ngDeleteContrato(item.idContrato)"
+                    matTooltip="Remover licitação dos meus negócios.">
+                    <mat-icon>delete</mat-icon> </a>
+                </div>
+                <div class="col-md-2">
+                  <a class="btn btn-visibility" (click)=" openDialog(item)"
+                    matTooltip="Click aqui para vizualizar os itens selecionados.">
+                    <mat-icon>visibility</mat-icon>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-2" style=" text-align: left;">
+                  <a class="btn btn-arrow_outward" (click)="ngRedirecionamento(item.url)"
+                    matTooltip="Acessar página da licitação.">
+                    <mat-icon>arrow_outward</mat-icon>
+                  </a>
+                </div>
+
+
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="example-container col-md-3">
+        <hr style="background-color: blue;">
+        <div class="col-md-12">
+          <h3>Em disputa</h3>
+        </div>
+        <hr style="background-color: blue;">
+        <div class="example-list" cdkDropList [cdkDropListData]="ContratosEmDisputa"
+          (cdkDropListDropped)="drop($event, 4)">
+
+          <div class="col-md-12">
+            <mat-card class="example-card" *ngFor="let item of ContratosEmDisputa" cdkDrag
+              (cdkDragEntered)="onDragEntered($event)">
+              <mat-card-content>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                {{item.titulo}} - UASG: {{item.codigo}}
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="col-md-2">
+                  <a class="btn btn-delete" (click)="ngDeleteContrato(item.idContrato)"
+                    matTooltip="Remover licitação dos meus negócios.">
+                    <mat-icon>delete</mat-icon> </a>
+                </div>
+                <div class="col-md-2">
+                  <a class="btn btn-visibility" (click)=" openDialog(item)"
+                    matTooltip="Click aqui para vizualizar os itens selecionados.">
+                    <mat-icon>visibility</mat-icon>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-2" style=" text-align: left;">
+                  <a class="btn btn-arrow_outward" (click)="ngRedirecionamento(item.url)"
+                    matTooltip="Acessar página da licitação.">
+                    <mat-icon>arrow_outward</mat-icon>
+                  </a>
+                </div>
+
+
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="text-center">
+      <h4>Meus Negocios</h4>
+    </div>
+  </div>
+</div>
+
+<div class="col-12">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="licitacao">
+      <th mat-header-cell *matHeaderCellDef>
+
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="row" >
+          <div class="col-md-12 div-contrato">
+            <mat-card class="contrato-card">
+              <mat-card-header class="header-card">
+                <mat-card-title>{{element.nome}}</mat-card-title>
+                <mat-card-subtitle>{{element.titulo}} - UASG: {{element.codigo}}</mat-card-subtitle>
+
+              </mat-card-header>
+              <mat-divider class="divider-card"></mat-divider>
+              <mat-card-content>
+                <br>
+                <mat-accordion>
+                  <mat-expansion-panel [expanded]="step === element.idContrato" (opened)="setStep(element.idContrato)">
+                    <mat-expansion-panel-header>
+                      <p> {{element.modalidade}}</p>
+                    </mat-expansion-panel-header>
+                    <p>{{element.descicao}}</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+                <br>
+
+              </mat-card-content>
+              <mat-divider class="divider-card"></mat-divider>
+              <mat-card-actions>
+                <div class="col-1">
+                  <a class="btn-delete" (click)="ngDeleteContrato(element.idContrato)"
+                    matTooltip="Remover licitação dos meus negócios.">
+                    <mat-icon>delete</mat-icon> </a>
+                </div>
+                <div class="col-1" style=" text-align: left;">
+                  <a class="btn-arrow_outward" (click)="ngRedirecionamento(element.url)"
+                    matTooltip="Acessar página da licitação.">
+                    <mat-icon>arrow_outward</mat-icon>
+                  </a>
+                </div>
+                <div class="col-md-10">
+                </div>
+    
+              </mat-card-actions>
+            </mat-card>
+            <br>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 50, 100]" showFirstLastButtons
+    aria-label="Selecione a página de elementos periódicos">
+  </mat-paginator>
+
+</div> -->

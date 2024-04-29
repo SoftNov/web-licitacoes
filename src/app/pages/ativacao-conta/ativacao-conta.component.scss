@@ -1,0 +1,27 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #afafaf;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.card {
+    width: 70%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-primary {
+    margin-top: auto;
+}

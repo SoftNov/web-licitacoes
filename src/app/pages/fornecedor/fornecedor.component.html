@@ -1,0 +1,125 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>
+                <div class="row">
+                    <div class="Titulo-Fornecedor col-md-12">
+                        <h3> {{titulo}} </h3>
+                    </div>
+                </div>
+            </mat-card-title>
+        </mat-card-title-group>
+    </mat-card-header>
+    <div class=" col-sm-12">
+        <hr>
+    </div>
+    <mat-card-content style="width: 100%;">
+        <form [formGroup]="formularioRegisterFornecedor">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nome da Empresa:</mat-label>
+                            <input matInput formControlName="nomeEmpresa" placeholder="Empresa" type="text">
+                            <mat-icon matSuffix>groups_3</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Representante Comercial:</mat-label>
+                            <input matInput formControlName="nomeRepresentanteComercial"
+                            placeholder="Representante Comercial" type="text">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>E-mail:</mat-label>
+                            <input matInput formControlName="email" placeholder="E-mail" type="text">
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Telefone:</mat-label>
+                            <input matInput formControlName="telefone" mask="(00)0 0000-0000"
+                            placeholder="Telefone" type="text">
+                            <mat-icon matSuffix>call</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Cnpj:</mat-label>
+                            <input matInput formControlName="cnpj" placeholder="Cnpj" type="text"
+                            mask="00.000.000/0000-00">
+                            <mat-icon matSuffix>settings</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Valor Produto:</mat-label>
+                            <input matInput type="text" data-mask='R$ 0.00' formControlName="valor"
+                            placeholder="Valor do Produto">
+                            <mat-icon matSuffix>attach_money</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Marca:</mat-label>
+                            <input matInput  formControlName="marca" placeholder="Marca" type="text">
+                            <mat-icon matSuffix>sell</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Modelo:</mat-label>
+                            <input matInput  formControlName="modelo" placeholder="Modelo" type="text">
+                            <mat-icon matSuffix>work</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+                <div class="col-sm-12">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Descriçao Produto:</mat-label>
+                            <textarea matInput rows="5" formControlName="descricao"
+                            placeholder="Descrição Produto" placeholder="Descrição Produto" type="text"></textarea>
+                        </mat-form-field>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="text-right col-lg-6">
+                    <button class="form-control btn btn-primary" [routerLink]="['/Fornecedor']"
+                        style="background-color: rgb(255, 170, 0);">Voltar</button>
+                </div>
+                <div class="text-right col-lg-6">
+                    <button class="form-control btn btn-primary" [disabled]="!formularioRegisterFornecedor.valid"
+                        (click)="ngCadastroEdicao()">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

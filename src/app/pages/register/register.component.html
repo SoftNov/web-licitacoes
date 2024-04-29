@@ -1,0 +1,111 @@
+
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+
+
+        <div class="container">
+          <div class="text-light col-lg-6">
+            <a  routerLinkActive="active" [routerLink]="['/login']" data-bs-toggle="tooltip" title="Voltar a página de login">
+              <mat-icon aria-hidden="false" aria-label="Login" fontIcon="arrow_back_ios"></mat-icon>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center mb-4" style="color: white;">
+            <h2>Inscreva-se!</h2>
+          </div>
+          <form [formGroup]="formularioRegister">
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Senha de acesso" fontIcon="person"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="nome"  placeholder="Nome" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Senha de acesso" fontIcon="mail"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="email" placeholder="Email" type="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="celuar" fontIcon="call"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="telefone" placeholder="Telefone" type="text" mask="(00)0 0000-0000">
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Cpf/Cnpj" fontIcon="settings"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="cpfCnpj" placeholder="Cpf/Cnpj" type="text" mask="000.000.000-00||00.000.000/0000-00">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Senha de acesso" fontIcon="lock_person"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="senha" placeholder="Senha" type="password" mask="000000000">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Senha de acesso" fontIcon="lock_person"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="confirmacaoSenha" placeholder="Cofirmação de Senha" type="password" mask="000000000">
+              </div>
+            </div>
+
+            <div class="row my-4">
+              <div class="col-12">
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox" formControlName="termo">
+
+                  <label class="custom-control-label" for="customCheckRegister" style="color: white;">
+                    <span>Eu concordo com a <a href="#!" style="color: white;">Política de Privacidade</a></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="text-right col-lg-12">
+                  <button  class="form-control btn btn-primary" [disabled]="!formularioRegister.valid" (click)="ngRegister()">Criar Conta</button>
+                </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

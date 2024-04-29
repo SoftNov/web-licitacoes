@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-12">
+      <div class="text-center">
+        <h4>Dados Cadastrais</h4>
+      </div>
+    </div>
+  </div>
+  <br>
+  <mat-card class="center-card">
+    <mat-card-content>
+      <form [formGroup]="formularioRegister">
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome:</label>
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Senha de acesso" fontIcon="person"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="nome" placeholder="Nome" type="text" >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Cpf ou Cnpj:</label>
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="Cpf/Cnpj" fontIcon="settings"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="cpfCnpj" placeholder="Cpf/Cnpj" type="text"
+                  mask="000.000.000-00||00.000.000/0000-00">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>E-mail:</label>
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="email" fontIcon="mail"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="email" placeholder="email" type="email">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Número Telefone:</label>
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <mat-icon aria-hidden="false" aria-label="celuar" fontIcon="call"></mat-icon>
+                  </span>
+                </div>
+                <input class="form-control" formControlName="telefone" placeholder="Telefone" type="text"
+                  mask="(00)0 0000-0000">
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <div class="row">
+          <br> 
+        </div>
+        <div class="row">
+          <br>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <button class="btn-atualizar" mat-raised-button color="primary" 
+            [disabled]="!formularioRegister.valid" (click)="ngAtualizar()">Atualizar</button>
+          </div>
+      </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div class="row">
+    <br>
+  </div>

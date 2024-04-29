@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+  <a class="navbar-brand" [routerLink]="['/home']">
+    <img class="img-logo" src="assets/Imagens/Logo.jpg" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <div class="col-sm-11">
+      <ul class="navbar-nav">
+        <div class="col-md-2">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown" >
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Licitações
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" [routerLink]="['/Pesquisa/licitacoes']">Buscar</a>
+                <a class="dropdown-item" [routerLink]="['/Negocios']">Meus negócios</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="col-md-3">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown" >
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Parametros
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" [routerLink]="['/Fornecedor']"> Fornecedores</a>
+                <a class="dropdown-item" [routerLink]="['/PrecificacaoGrid']"> Contabeis</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- <div class="col-md-1">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/Fornecedor']">Fornecedores</a>
+          </li>
+        </div> -->
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Sobre</a>
+        </li> -->
+      </ul>
+    </div>
+    <div class="col-sm-1" style="text-align: right;">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
+          <a class="nav-link " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <mat-icon aria-hidden="false" aria-label="Conta" fontIcon="settings">Conta</mat-icon>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="margin-left: -60px">
+            <a class="dropdown-item" [routerLink]="['/Conta']">Conta</a>
+            <a class="dropdown-item" [routerLink]="['/login']"> Sair</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+
+  </div>
+</nav>

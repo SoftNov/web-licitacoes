@@ -1,0 +1,214 @@
+<div class="col-md-11" style="text-align: center;">
+    <h2><b>{{contrato.titulo}} - UASG: {{contrato.codigo}}</b></h2>
+    <p>{{contrato.descicao}}</p>
+</div>
+
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSourceItens">
+        <ng-container matColumnDef="Itens">
+            <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+                <div class="row">
+                    <div class="col-md-3" style="text-align: justify;">
+                        
+                            <button mat-raised-button color="primary"
+                                matTooltip="Click aqui para adicionar um novo fornecedor" 
+                                style="width: 50%; background-color: rgb(255, 170, 0);" (click)="ngVoltarViewFornecedor()" >
+                                <mat-icon>person_add</mat-icon> Voltar
+                            </button>
+                      
+                            <button mat-raised-button matTooltip="Click aqui para baixar planilha com fornecedores"
+                                style="width: 50%; color: green;">
+                                <mat-icon>cloud_download</mat-icon> Excel
+                            </button>
+                     
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        Itens Selecionados
+                    </div>
+                </div>
+
+
+            </th>
+            <td mat-cell *matCellDef="let item">
+
+                <mat-expansion-panel style="margin-top: 1%;">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+
+                            <mat-checkbox [(ngModel)]="item.isChecked" matTooltip="Vincular item para o fornecedor."
+                                (change)="ngVincular(item.id, item.idVinculo,  $event.checked)"
+                                *ngIf="setFornecedor && (IdFornecedor == item.idFornecedor || item.idFornecedor == 0)"></mat-checkbox>
+
+
+                            <b> Nº Item: {{item.numItem}}</b>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title s>
+                                <h3>Dados Item</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+
+                        <mat-card-content>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <mat-form-field>
+                                        <mat-label>Nº Item:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.numItem"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <mat-form-field>
+                                        <mat-label>Quantidade:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.quantidade"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <mat-form-field>
+                                        <mat-label>Valor Unitário (R$):</mat-label>
+                                        <input class="input-view" type="text" matInput
+                                            [(ngModel)]="item.vlrUnitarioEstimado" readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <mat-form-field>
+                                        <mat-label>Valor Total (R$):</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.vltTotal"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Descrição Item</mat-label>
+                                        <textarea matInput class="input-view" rows="5" type="text"
+                                            [(ngModel)]="item.descricao" readonly></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card *ngIf="item.idFornecedor > 0" style="margin-top: 2%;">
+
+                        <mat-card-header>
+                            <mat-card-title s>
+                                <h3>Dados Fornecedor</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+
+
+                        <mat-card-content>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button mat-raised-button color="warn"
+                                        (click)="ngVincular(item.id, item.idVinculo, false)"
+                                        *ngIf="setFornecedor && IdFornecedor != item.idFornecedor && item.idFornecedor > 0">
+                                        Remover Vinculo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 1%;">
+
+                                <div class="col-sm-6">
+                                    <mat-form-field>
+                                        <mat-label>Empresa</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.empresa"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Representante Comercial:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.nomeComercial"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field>
+                                        <mat-label>Cnpj:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.cnpj" readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field>
+                                        <mat-label>E-mail:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.email"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field>
+                                        <mat-label>Nº Telefonel:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.numTelefone"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field>
+                                        <mat-label>Valor (R$):</mat-label>
+                                        <input class="input-view" type="text" matInput
+                                            [(ngModel)]="item.valorFornecedor" readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Marca:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.marca"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field>
+                                        <mat-label>Modelo:</mat-label>
+                                        <input class="input-view" type="text" matInput [(ngModel)]="item.modelo"
+                                            readonly>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <mat-form-field>
+                                        <mat-label>Descrição Produto</mat-label>
+                                        <textarea matInput class="input-view" rows="5" type="text"
+                                            [(ngModel)]="item.desProdutoFornecedor" readonly></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+
+
+                </mat-expansion-panel>
+
+
+
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsItens"></tr>
+        <tr mat-row *matRowDef="let rowItens; columns: displayedColumnsItens;"></tr>
+    </table>
+
+    <mat-paginator #paginatorItens [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

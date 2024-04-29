@@ -1,0 +1,130 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>
+                <div class="row">
+                    <div class="Titulo-Fornecedor col-md-12">
+                        <h3> {{titulo}} </h3>
+                    </div>
+                </div>
+            </mat-card-title>
+        </mat-card-title-group>
+    </mat-card-header>
+    <div class=" col-sm-12">
+        <hr>
+    </div>
+    <mat-card-content style="width: 100%;">
+        <form [formGroup]="formularioContabeis">
+            <div class="row">
+                 <div class="col-sm-12">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Indentificador:</mat-label>
+                            <input matInput formControlName="descricao" placeholder="Empresa" type="text">
+                            <mat-icon matSuffix>groups_3</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Transporte (%):</mat-label>
+                            <input matInput formControlName="transporte"
+                            placeholder="Margem destinada ao transporte" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Garantia Extra (%):</mat-label>
+                            <input matInput formControlName="garantiaExtra" 
+                            placeholder="Garantia estendida para o produto" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Icms (%):</mat-label>
+                            <input matInput formControlName="icms"
+                            placeholder="Insira o ICMS de referente" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Pis (%):</mat-label>
+                            <input matInput formControlName="pis"
+                            placeholder="Insira o PIS de referente" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Cofins (%):</mat-label> 
+                            <input matInput formControlName="cofins"
+                            placeholder="Insira o COFINS de referente" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ipi (%):</mat-label>
+                            <input matInput formControlName="ipi" 
+                            placeholder="Insira o IPI de referente" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Iss (%):</mat-label>
+                            <input matInput formControlName="iss" 
+                            placeholder="Insira o ISS de referente" type="text">
+                            <mat-icon matSuffix>trending_down</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Margem Desejada (%):</mat-label>
+                            <input matInput formControlName="margem" 
+                            placeholder="Insira a MARGEM liquida desejada" type="text">
+                            <mat-icon matSuffix>price_check</mat-icon>
+                        </mat-form-field>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="text-right col-lg-6">
+                    <button class="form-control btn btn-primary" [routerLink]="['/PrecificacaoGrid']"
+                        style="background-color: rgb(255, 170, 0);">Voltar</button>
+                </div>
+                <div class="text-right col-lg-6">
+                    <button class="form-control btn btn-primary" [disabled]="!formularioContabeis.valid"
+                        (click)="ngCadastroEdicao()">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

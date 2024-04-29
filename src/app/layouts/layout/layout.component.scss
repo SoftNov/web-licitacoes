@@ -1,0 +1,10 @@
+/* Seu arquivo de estilo CSS */
+
+
+  
+  .full-width {
+    width: 100%; /* Isso faz com que o mat-card ocupe toda a largura do contêiner */
+    max-width: 100%; /* Isso garante que o mat-card não ultrapasse a largura máxima do contêiner */
+    height: max-content;
+  }
+  
